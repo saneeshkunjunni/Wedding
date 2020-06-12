@@ -271,8 +271,7 @@
     <Content Include="fonts\NuptialBT-Regular.eot" />
     <Content Include="fonts\NuptialBT-Regular.ttf" />
     <Content Include="fonts\NuptialBT-Regular.woff" />
-    <None Include="Properties\PublishProfiles\local.pubxml" />
-    <None Include="Properties\PublishProfiles\midhunwedsaiswarya.xyz - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\saneesh.storyboxsolutions.com - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cbpGridGallery.js" />
     <Content Include="Scripts\classie.js" />

@@ -23,28 +23,28 @@ namespace Wedding.Controllers
         public ActionResult FaceBookLogin(String message)
         {
             try
-        {
-
-        
-
-            if (!string.IsNullOrEmpty(message))
             {
-                Session["message"] = message;
-            }
 
 
-            if (Request.Params["error_code"] != null && Request.Params["error_code"] == "200")
-            {
-                Response.Redirect("/");
-                return null;
-            }
 
-            //if (String.IsNullOrEmpty(InitialPage) == false)
-            //{
-            //    Response.Cookies.Add(new HttpCookie("InitialPage", InitialPage));
-            //}
-            //try
-            //{
+                if (!string.IsNullOrEmpty(message))
+                {
+                    Session["message"] = message;
+                }
+
+
+                if (Request.Params["error_code"] != null && Request.Params["error_code"] == "200")
+                {
+                    Response.Redirect("/");
+                    return null;
+                }
+
+                //if (String.IsNullOrEmpty(InitialPage) == false)
+                //{
+                //    Response.Cookies.Add(new HttpCookie("InitialPage", InitialPage));
+                //}
+                //try
+                //{
 
 
                 String uri = "http://" + Request.Url.Authority + Url.Action("FacebookLogin", "Home");
@@ -76,7 +76,7 @@ namespace Wedding.Controllers
                     return RedirectToAction("Index");
                 }
 
-        }
+            }
             catch (Exception ex)
             {
                 return RedirectToAction("Index");
@@ -84,21 +84,29 @@ namespace Wedding.Controllers
             return null;
 
         }
-          private List<Wishes> GetWishes()
+        private List<Wishes> GetWishes()
         {
-           
-            var context = new EntityContext();
-            return context.Wishes.Where(x=>x.siteId==1).ToList();
+
+            //var context = new EntityContext();
+            //return context.Wishes.Where(x=>x.siteId==1).ToList();
+            List<Wishes> v = new List<Wishes>() { new Wishes()
+            {
+                Name = "Hai",
+                fbid = "Pooi",
+                message = "Hello",
+                siteId =1,
+            }};
+            return v;
         }
-        private void SaveWish(string fbId,string name,string message)
+        private void SaveWish(string fbId, string name, string message)
         {
-          
+
             var wish = new Wishes()
             {
                 Name = name,
                 fbid = fbId,
                 message = message,
-                siteId =1,
+                siteId = 1,
             };
 
             using (var context = new EntityContext())
@@ -129,13 +137,13 @@ namespace Wedding.Controllers
             }
             catch (Exception ex)
             {
-               
+
             }
 
             return null;
         }
 
-        private void SaveImage(Image image,string fbId)
+        private void SaveImage(Image image, string fbId)
         {
             var filePath = Server.MapPath("~/Content/images/friends/");
             image.Save(filePath + fbId + ".jpg");
