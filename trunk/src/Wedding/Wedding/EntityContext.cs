@@ -8,7 +8,10 @@ namespace Wedding
 {
     public class EntityContext : DbContext
     {
-        public EntityContext() : base("name=DbConnectionString") { }
+        public EntityContext() : base("name=DbConnectionString")
+        {
+            Database.SetInitializer<EntityContext>(new CreateDatabaseIfNotExists<EntityContext>());
+        }
         public DbSet<Wishes> Wishes { get; set; }
     }
 }

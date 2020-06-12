@@ -87,16 +87,8 @@ namespace Wedding.Controllers
         private List<Wishes> GetWishes()
         {
 
-            //var context = new EntityContext();
-            //return context.Wishes.Where(x=>x.siteId==1).ToList();
-            List<Wishes> v = new List<Wishes>() { new Wishes()
-            {
-                Name = "Hai",
-                fbid = "Pooi",
-                message = "Hello",
-                siteId =1,
-            }};
-            return v;
+            var context = new EntityContext();
+            return context.Wishes.Where(x => x.siteId == 1).ToList(); 
         }
         private void SaveWish(string fbId, string name, string message)
         {
