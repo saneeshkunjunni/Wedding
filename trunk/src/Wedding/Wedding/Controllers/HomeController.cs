@@ -51,7 +51,7 @@ namespace Wedding.Controllers
 
 
 
-                var FB = new FBOpenGraph("837837863007419", "a9b8d4e74b7e4b137efa647b7d141b5a", uri);
+                var FB = new FBOpenGraph("561016054610957", "40ec3611ae4e8b6563436f954ebd6386", uri);
 
                 if (Request.Params["code"] == null)
                 {
